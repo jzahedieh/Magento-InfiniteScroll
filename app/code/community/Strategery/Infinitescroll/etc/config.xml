@@ -34,11 +34,6 @@
                 <class>Strategery_Infinitescroll_Helper</class>
             </infinitescroll>
         </helpers>
-        <models>
-            <infinitescroll>
-                <class>Strategery_Infinitescroll_Model</class>
-            </infinitescroll>
-        </models>
         <blocks>
             <infinitescroll>
                 <class>Strategery_Infinitescroll_Block</class>
@@ -54,18 +49,6 @@
             </updates>
         </layout>
     </frontend>
-    <adminhtml>
-        <events>
-            <controller_action_predispatch>
-                <observers>
-                    <tmcore>
-                        <class>infinitescroll/observer</class>
-                        <method>controllerActionPredispatch</method>
-                    </tmcore>
-                </observers>
-            </controller_action_predispatch>
-        </events>
-    </adminhtml>
     <default>
         <infinitescroll>
             <general>
