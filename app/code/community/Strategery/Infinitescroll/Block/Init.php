@@ -18,18 +18,6 @@
 class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 {
 
-	public function getConfigData()
-	{
-		$helper = Mage::helper('infinitescroll');
-		$cache = Mage::getSingleton('core/cache');
-		$configData = $cache->load("infinitescroll_configData");
-		if ( ! $configData) {
-			$configData = $helper->getConfigData('selectors/content');
-			$cache->save($configData, "infinitescroll_configData", array("infinitescroll"));
-		}
-		return $configData;
-	}
-
 	public function isEnabled()
 	{
 		return Mage::helper('infinitescroll')->isEnabledInCurrentPage();
