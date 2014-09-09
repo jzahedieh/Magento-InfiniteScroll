@@ -29,27 +29,11 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		return Mage::getStoreConfig('infinitescroll/memory/enabled');
 	}
-	
-//	public function isScrollCall()
-//	{
-//		$result=false;
-//		if(Mage::app()->getRequest()->getParam('scrollCall')==1) {
-//			$result=true;
-//		}
-//		return $result;
-//	}
-	
+
 	public function getNextPageNumber()
 	{
 		return Mage::app()->getRequest()->getParam('p');
 	}
-	
-	public function getSession()
-	{
-		return Mage::getSingleton("core/session");
-	}
-	
-
 
 	public function isEnabled()
 	{
@@ -85,10 +69,5 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract
 		return $this->isEnabled() && Mage::getStoreConfig('infinitescroll/instances/'.$pageType);
 	}
 
-//	public function getSizeLimitForCurrentPage()
-//	{
-//		$pageType = $this->getCurrentPageType();
-//		return Mage::getStoreConfig('infinitescroll/instances/size_'.$pageType.'');
-//	}
 
 }
