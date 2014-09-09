@@ -23,7 +23,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function getLoaderImage()
     {
-        $url = Mage::helper('infinitescroll')->getConfigData('design/loading_img');
+        $url = Mage::getStoreConfig('infinitescroll/design/loading_img');
 
         return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
     }
@@ -57,6 +57,11 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
         }
 
         return $productListMode;
+    }
+
+    public function getJsConfigData($node)
+    {
+        return Mage::getStoreConfig('infinitescroll/' . $node);
     }
 
 }

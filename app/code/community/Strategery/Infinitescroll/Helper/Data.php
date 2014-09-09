@@ -25,12 +25,6 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract
 
     protected $_optionsMap;
 
-
-    public function getConfigData($node) 
-	{
-        return Mage::getStoreConfig('infinitescroll/' . $node);
-    }
-
 	public function isMemoryActive()
 	{
 		return Mage::getStoreConfig('infinitescroll/memory/enabled');

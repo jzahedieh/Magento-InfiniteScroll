@@ -24,7 +24,7 @@
         <script>window.jQuery || document.write('<script src="<?php echo $this->getJsUrl('jquery/jquery.latest.min.js') ?>"><\/script>')</script>
         <script>jQuery.noConflict();</script>
     <?php endif ?>
-    <?php if ($iasConfig = $helper->getConfigData('advanced/ias_config')) : ?>
+    <?php if ($iasConfig = Mage::getStoreConfig('infinitescrolladvanced/ias_config')): ?>
         <script src="<?php echo $this->getSkinUrl($iasConfig) ?>"></script>
     <?php endif ?>
     <script>
@@ -80,17 +80,17 @@
                     jQuery(function ($) {
 
                         var config = {
-                            container: '<?php echo $helper->getConfigData('selectors/content') ?>',
-                            item: '<?php echo $productListMode == 'grid' ? $helper->getConfigData('selectors/items_grid') : $helper->getConfigData('selectors/items_list') ?>',
-                            pagination: '<?php echo $helper->getConfigData('selectors/pagination') ?>',
-                            next: '<?php echo $helper->getConfigData('selectors/next') ?>',
-                            triggerPageThreshold: <?php echo (int) $helper->getConfigData('design/load_more_threshold') ?>,
-                            trigger: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/load_more_text'))) ?>',
+                            container: '<?php echo $this->getJsConfigData('selectors/content') ?>',
+                            item: '<?php echo $productListMode == 'grid' ? $this->getJsConfigData('selectors/items_grid') : $this->getJsConfigData('selectors/items_list') ?>',
+                            pagination: '<?php echo $this->getJsConfigData('selectors/pagination') ?>',
+                            next: '<?php echo $this->getJsConfigData('selectors/next') ?>',
+                            triggerPageThreshold: <?php echo (int) $this->getJsConfigData('design/load_more_threshold') ?>,
+                            trigger: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/load_more_text'))) ?>',
                             history: <?php echo ($helper->isMemoryActive()) ? 'true' : 'false'; ?>,
-                            noneleft: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/done_text'))) ?>',
-                            loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/loading_text'))); ?>',
-                            scrollContainer: <?php if($helper->getConfigData('design/local_mode')): ?>$('<?php echo $helper->getConfigData('selectors/content') ?>')<?php else: ?>$(window)<?php endif ?>,
-                            thresholdMargin: -<?php echo (int) $helper->getConfigData('design/buffer_px') ?>
+                            noneleft: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/done_text'))) ?>',
+                            loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/loading_text'))); ?>',
+                            scrollContainer: <?php if($this->getJsConfigData('design/local_mode')): ?>$('<?php echo $this->getJsConfigData('selectors/content') ?>')<?php else: ?>$(window)<?php endif ?>,
+                            thresholdMargin: -<?php echo (int) $this->getJsConfigData('design/buffer_px') ?>
                         };
 
                         if (window.ias_config) {
@@ -99,7 +99,7 @@
 
                         $.ias(config);
 
-                        $('<?php echo Mage::getStoreConfig('infinitescroll/selectors/toolbar') ?>').<?php echo $helper->getConfigData('design/hide_toolbar') ? 'hide' : 'show' ?>();
+                        $('<?php echo Mage::getStoreConfig('infinitescroll/selectors/toolbar') ?>').<?php echo $this->getJsConfigData('design/hide_toolbar') ? 'hide' : 'show' ?>();
 
                         if (windowLoadedFlag) {
                             $(window).load();
