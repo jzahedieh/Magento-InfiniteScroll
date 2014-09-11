@@ -18,7 +18,40 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function isEnabled()
     {
-        return $this->helper('infinitescroll')->isEnabledInCurrentPage();
+        return $this->isEnabledInCurrentPage();
+    }
+
+    public function getCurrentPageType()
+    {
+        $where = 'grid';
+        /** @var Mage_Catalog_Model_Category $currentCategory */
+        $currentCategory = Mage::registry('current_category');
+        if ($currentCategory) {
+            $where = "grid";
+            if ($currentCategory->getIsAnchor()) {
+                $where = "layer";
+            }
+        }
+        $controller = Mage::app()->getRequest()->getControllerName();
+        if ($controller == "result") {
+            $where = "search";
+        } else {
+            if ($controller == "advanced") {
+                $where = "advanced";
+            }
+        }
+
+        return $where;
+    }
+
+    /**
+     * check general and instance enable
+     *
+     * @return bool
+     */
+    public function isEnabledInCurrentPage()
+    {
+        return $this->getConfigData('general/enabled') && $this->getConfigData('/instances/' . $this->getCurrentPageType());
     }
 
     public function getLoaderImage()
