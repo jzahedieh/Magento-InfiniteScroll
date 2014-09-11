@@ -78,7 +78,6 @@
                 <hide_pagination>1</hide_pagination>
                 <animate>0</animate>
                 <local_mode>0</local_mode>
-                <extra_scroll_px>150</extra_scroll_px>
                 <buffer_px>150</buffer_px>
                 <load_more_text>Load more items</load_more_text>
                 <load_more_threshold>5</load_more_threshold>
