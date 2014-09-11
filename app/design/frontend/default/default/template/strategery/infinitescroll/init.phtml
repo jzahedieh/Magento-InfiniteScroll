@@ -16,7 +16,6 @@
 ?>
 <?php if ($this->isEnabled()): ?>
     <?php
-    $helper          = Mage::helper('infinitescroll');
     $productListMode = $this->getProductListMode();
     ?>
     <?php if (Mage::getStoreConfig('infinitescroll/general/jquery')): ?>
@@ -85,10 +84,10 @@
                             pagination: '<?php echo $this->getJsConfigData('selectors/pagination') ?>',
                             next: '<?php echo $this->getJsConfigData('selectors/next') ?>',
                             triggerPageThreshold: <?php echo (int) $this->getJsConfigData('design/load_more_threshold') ?>,
-                            trigger: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/load_more_text'))) ?>',
+                            trigger: '<?php echo $this->__($this->getJsConfigData('design/load_more_text', true)) ?>',
                             history: <?php echo ($this->isMemoryActive()) ? 'true' : 'false'; ?>,
-                            noneleft: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/done_text'))) ?>',
-                            loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/loading_text'))); ?>',
+                            noneleft: '<?php echo $this->__($this->getJsConfigData('design/done_text', true)) ?>',
+                            loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $this->__($this->getJsConfigData('design/loading_text', true)); ?>',
                             scrollContainer: <?php if($this->getJsConfigData('design/local_mode')): ?>$('<?php echo $this->getJsConfigData('selectors/content') ?>')<?php else: ?>$(window)<?php endif ?>,
                             thresholdMargin: -<?php echo (int) $this->getJsConfigData('design/buffer_px') ?>
                         };

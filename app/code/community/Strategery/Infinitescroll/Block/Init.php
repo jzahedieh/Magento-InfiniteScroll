@@ -59,9 +59,15 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
         return $productListMode;
     }
 
-    public function getJsConfigData($node)
+    public function getJsConfigData($node, $jsQuoteEscape = false)
     {
-        return Mage::getStoreConfig('infinitescroll/' . $node);
+        $config = Mage::getStoreConfig('infinitescroll/' . $node);
+
+        if (!$jsQuoteEscape) {
+            return $config;
+        }
+
+        return $this->helper('infinitescroll')->jsQuoteEscape($config);
     }
 
     public function isMemoryActive()
