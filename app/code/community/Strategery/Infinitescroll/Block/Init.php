@@ -23,25 +23,25 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function getCurrentPageType()
     {
-        $where = 'grid';
-        /** @var Mage_Catalog_Model_Category $currentCategory */
-        $currentCategory = Mage::registry('current_category');
-        if ($currentCategory) {
+        /** @var $currentCategory Mage_Catalog_Model_Category  */
+        if ($currentCategory = Mage::registry('current_category')) {
             $where = "grid";
             if ($currentCategory->getIsAnchor()) {
                 $where = "layer";
             }
-        }
-        $controller = $this->getRequest()->getControllerName();
-        if ($controller == "result") {
-            $where = "search";
-        } else {
-            if ($controller == "advanced") {
-                $where = "advanced";
-            }
+            return $where;
         }
 
-        return $where;
+        $controller = $this->getRequest()->getControllerName();
+        if ($controller === "result") {
+            return "search";
+        } elseif ($controller === "advanced") {
+            return "advanced";
+        }
+
+        // default behaviour
+        return "grid";
+
     }
 
     /**
