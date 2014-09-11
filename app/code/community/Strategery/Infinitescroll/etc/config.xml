@@ -38,7 +38,7 @@
             <infinitescroll>
                 <class>Strategery_Infinitescroll_Block</class>
             </infinitescroll>
-        </blocks>        
+        </blocks>
     </global>
     <frontend>
         <layout>

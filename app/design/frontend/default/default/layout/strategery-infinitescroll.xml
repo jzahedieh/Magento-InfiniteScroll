@@ -40,29 +40,10 @@
         <update handle="infinitescroll"/>
     </catalogsearch_advanced_result>
 
-
     <infinitescroll>
-        <reference name="head">
-            <!--
-            <action method="addItem" ifconfig="infinitescroll/general/enabled">
-                <type>js</type>
-                <name>jquery/infinitescroll/https.js</name>
-            </action>
-            -->
-
-        </reference>
         <reference name="before_body_end">
-            <block type="infinitescroll/init" name="infinitescroll_init">
-                <action method="setTemplate">
-                    <template>strategery/infinitescroll/init.phtml</template>
-                </action>
-            </block>
+            <block type="infinitescroll/init" name="infinitescroll_init" template="strategery/infinitescroll/init.phtml"/>
         </reference>
-        <!--<reference name="product_list_toolbar">-->
-            <!--<action method="setTemplate" ifconfig="infinitescroll/design/hide_toolbar">-->
-                <!--<template>strategery/infinitescroll/toolbar.phtml</template>-->
-            <!--</action>-->
-        <!--</reference>-->
     </infinitescroll>
 
 </layout>
