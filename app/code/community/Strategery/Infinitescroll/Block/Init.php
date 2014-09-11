@@ -32,7 +32,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
                 $where = "layer";
             }
         }
-        $controller = Mage::app()->getRequest()->getControllerName();
+        $controller = $this->getRequest()->getControllerName();
         if ($controller == "result") {
             $where = "search";
         } else {
@@ -51,7 +51,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
      */
     public function isEnabledInCurrentPage()
     {
-        return $this->getConfigData('general/enabled') && $this->getConfigData('/instances/' . $this->getCurrentPageType());
+        return $this->getConfigData('general/enabled') && $this->getConfigData('instances/' . $this->getCurrentPageType());
     }
 
     public function getLoaderImage()
