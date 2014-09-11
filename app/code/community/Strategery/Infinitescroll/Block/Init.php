@@ -23,7 +23,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function getLoaderImage()
     {
-        $url = $this->getConfigData('infinitescroll/design/loading_img');
+        $url = $this->getConfigData('design/loading_img');
 
         return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
     }
