@@ -49,6 +49,13 @@
             </updates>
         </layout>
     </frontend>
+    <phpunit>
+        <suite>
+            <modules>
+                <Strategery_Infinitescroll/>
+            </modules>
+        </suite>
+    </phpunit>
     <default>
         <infinitescroll>
             <general>
