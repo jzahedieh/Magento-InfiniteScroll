@@ -86,7 +86,7 @@
                             next: '<?php echo $this->getJsConfigData('selectors/next') ?>',
                             triggerPageThreshold: <?php echo (int) $this->getJsConfigData('design/load_more_threshold') ?>,
                             trigger: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/load_more_text'))) ?>',
-                            history: <?php echo ($helper->isMemoryActive()) ? 'true' : 'false'; ?>,
+                            history: <?php echo ($this->isMemoryActive()) ? 'true' : 'false'; ?>,
                             noneleft: '<?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/done_text'))) ?>',
                             loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $helper->jsQuoteEscape($this->__($this->getJsConfigData('design/loading_text'))); ?>',
                             scrollContainer: <?php if($this->getJsConfigData('design/local_mode')): ?>$('<?php echo $this->getJsConfigData('selectors/content') ?>')<?php else: ?>$(window)<?php endif ?>,
