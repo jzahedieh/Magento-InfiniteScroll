@@ -1,9 +1,9 @@
 /*!
  * Infinite Ajax Scroll, a jQuery plugin
- * Version 1.0.2
+ * Version 1.1.0
  * https://github.com/webcreate/infinite-ajax-scroll
  *
- * Copyright (c) 2011-2013 Jeroen Fiege
+ * Copyright (c) 2011-2014 Jeroen Fiege
  * Licensed under MIT:
  * https://raw.github.com/webcreate/infinite-ajax-scroll/master/MIT-LICENSE.txt
  */
@@ -62,8 +62,10 @@
                 stop_scroll();
 
                 pageNum = hist.getPage();
+
                 util.forceScrollTop(function () {
                     var curThreshold;
+
                     if (pageNum > 1) {
                         paginateToPage(pageNum);
 
@@ -118,6 +120,7 @@
                     paginate(curScrOffset);
                 }
             }
+            opts.onScroll(curScrOffset, get_current_page(), scrThreshold);
         }
 
         /**
@@ -435,6 +438,7 @@
         beforePageChange: function () {},
         onLoadItems: function () {},
         onRenderComplete: function () {},
+        onScroll: function () {},
         customLoaderProc: false,
         customTriggerProc: false
     };
@@ -454,7 +458,7 @@
          */
         function init()
         {
-            $(window).load(function () {
+            $(document).ready(function () {
                 wndIsLoaded = true;
             });
         }
@@ -475,6 +479,7 @@
         this.forceScrollTop = function (onCompleteHandler)
         {
             $('html,body').scrollTop(0);
+
             if (!forceScrollTopIsCompleted) {
                 if (!wndIsLoaded) {
                     setTimeout(function () {self.forceScrollTop(onCompleteHandler); }, 1);
