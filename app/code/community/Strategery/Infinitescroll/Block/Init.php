@@ -18,12 +18,12 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function isEnabled()
     {
-        return Mage::helper('infinitescroll')->isEnabledInCurrentPage();
+        return $this->helper('infinitescroll')->isEnabledInCurrentPage();
     }
 
     public function getLoaderImage()
     {
-        $url = Mage::getStoreConfig('infinitescroll/design/loading_img');
+        $url = $this->getConfigData('infinitescroll/design/loading_img');
 
         return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
     }
@@ -59,7 +59,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
         return $productListMode;
     }
 
-    public function getJsConfigData($node, $jsQuoteEscape = false)
+    public function getConfigData($node, $jsQuoteEscape = false)
     {
         $config = Mage::getStoreConfig('infinitescroll/' . $node);
 
@@ -72,7 +72,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 
     public function isMemoryActive()
     {
-        return Mage::getStoreConfig('infinitescroll/memory/enabled');
+        return $this->getConfigData('memory/enabled');
     }
 
 }
