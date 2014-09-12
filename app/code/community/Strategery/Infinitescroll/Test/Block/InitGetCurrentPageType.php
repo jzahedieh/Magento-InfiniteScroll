@@ -1,6 +1,6 @@
 <?php
 
-class Strategery_Infinitescroll_Test_Block_Init extends EcomDev_PHPUnit_Test_Case
+class Strategery_Infinitescroll_Test_Block_InitGetCurrentPageType extends EcomDev_PHPUnit_Test_Case
 {
 
     /**
