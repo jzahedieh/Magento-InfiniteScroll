@@ -23,16 +23,10 @@
  */
  -->
 <config>
-    <tabs>
-        <strategery translate="label" module="infinitescroll">
-            <label>Strategery Inc. Extensions</label>
-            <sort_order>201</sort_order>
-        </strategery>
-    </tabs>
     <sections>
         <infinitescroll translate="label" module="infinitescroll">
             <label>Infinite Scroll</label>
-            <tab>strategery</tab>
+            <tab>catalog</tab>
             <frontend_type>text</frontend_type>
             <sort_order>120</sort_order>
             <show_in_default>1</show_in_default>
