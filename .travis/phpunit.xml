@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- initial phpunit configuration file, that you can modify for your project needs -->
+<phpunit cacheTokens="true"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         strict="false"
+         verbose="false"
+         bootstrap="app/code/community/EcomDev/PHPUnit/bootstrap.php">
+    <listeners>
+        <listener file="app/code/community/EcomDev/PHPUnit/Test/Listener.php" class="EcomDev_PHPUnit_Test_Listener" />
+    </listeners>
+    <testsuite name="Magento Test Suite">
+        <file>app/code/community/EcomDev/PHPUnit/Test/Suite.php</file>
+    </testsuite>
+    <groups>
+        <include>
+            <!-- Only run the tests for this module -->
+            <group>Strategery_Infinitescroll</group>
+        </include>
+    </groups>
+    <filter>
+        <blacklist>
+            <!-- Exclude Magento Core files from code coverage -->
+            <directory suffix=".php">app/code/core</directory>
+            <!-- Exclude other community packages from code coverage -->
+            <directory suffix=".php">app/code/community/EcomDev</directory>
+            <directory suffix=".php">app/code/community/Cm</directory>
+            <directory suffix=".php">app/code/community/Hackathon</directory>
+            <!-- Exclude Mage.php file from code coverage -->
+            <file>app/Mage.php</file>
+            <!-- Exclude template files -->
+            <directory suffix=".phtml">app/design</directory>
+            <!-- Exclude Composer and Magento libraries -->
+            <directory suffix=".php">lib</directory>
+            <directory suffix=".php">vendor</directory>
+        </blacklist>
+    </filter>
+</phpunit>
