@@ -1,0 +1,2 @@
+config:
+  default/infinitescroll/test/config: "I'm testing"

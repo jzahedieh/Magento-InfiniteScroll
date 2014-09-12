@@ -1,0 +1,2 @@
+config:
+  default/catalog/frontend/list_mode: "random"
